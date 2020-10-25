@@ -2,66 +2,36 @@
 const github = new Github();
 // Init UI
 const ui = new UI();
-
+// test
+/* let pion = createDomElement('p', 'id', 'orange');
+console.log(pion); */
 // Search input
 const searchUser = getOneElement('#searchUser');
 searchUser.addEventListener('keyup', (e) => {
   // recupere la valeur entré
   const userText = e.target.value;
 
+  // data renvoi les donné du fetch()
+  // c'est data.profile et data .repos
   if (userText !== '') {
     github.getUser(userText).then((data) => {
       if (data.profile.message === 'Not Found') {
-        // Show alert
-        // ui.showAlert('User not found', 'alert alert-danger');
-        console.log('user does not exit');
+        // Message d'erreur
+        ui.showAlert('User not found', 'alert alert-danger');
+        console.log('user does not exist');
       } else {
+        /*
+        data.profile et data.repositpry viennent de
+        return { profile, repository, }; de GitHub.js 
+         */
         // On affiche le profile
-        console.log('show profile');
-        // ui.showRepos(data.repos);
+        ui.showProfile(data.profile);
+        ui.showRepos(data.repository);
       }
-      console.log(data);
     });
-
-    // Make http call
-    /*  github.getUser(userText)
-     .then(data => {
-       if(data.profile.message === 'Not Found') {
-         // Show alert
-         ui.showAlert('User not found', 'alert alert-danger');
-       } else {
-         // Show profile
-         ui.showProfile(data.profile);
-         ui.showRepos(data.repos);
-       }
-     })*/
   } else {
-    // Clear profile en effacant les lettres
-    // ui.clearProfile();
+    // efface le profile en effacant les lettres entré
+    ui.clearProfile();
     console.log('clear profile ...');
   }
 });
-
-// Search input event listener
-/* searchUser.addEventListener('keyup', (e) => {
-  // Get input text
-  const userText = e.target.value;
-
-  if(userText !== ''){
-   // Make http call
-   github.getUser(userText)
-    .then(data => {
-      if(data.profile.message === 'Not Found') {
-        // Show alert
-        ui.showAlert('User not found', 'alert alert-danger');
-      } else {
-        // Show profile
-        ui.showProfile(data.profile);
-        ui.showRepos(data.repos);
-      }
-    })
-  } else {
-    // Clear profile
-    ui.clearProfile();
-  }
-});  */

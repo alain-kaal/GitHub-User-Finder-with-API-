@@ -1,4 +1,3 @@
-
 function getOneElement(cssSelector) {
   let element = document.querySelector(cssSelector);
   return element;
@@ -7,6 +6,16 @@ function getOneElement(cssSelector) {
 function getManyElements(cssSelector) {
   let elements = document.querySelectorAll(cssSelector);
   return elements;
+}
+
+function createOneElement(
+  typ,
+  attributeName = 'class',
+  attributeValue = 'xxx'
+) {
+  let element = document.createElement(typ);
+  element.setAttribute(attributeName, attributeValue);
+  return element;
 }
 
 /* let liClass = '.collection-item';
@@ -19,5 +28,5 @@ const taskListUl = document.querySelector('ul.collection');
 const linkDeleteItemA = document.querySelector(linkDelete);
 const taskItemLi = document.querySelectorAll(liClass); */
 
-//taskItemLi.style.border = styleBorder; 
+//taskItemLi.style.border = styleBorder;
 //console.log(taskItemLi);

@@ -2,8 +2,6 @@ class UI {
   constructor() {
     this.profile = getOneElement('#profile');
   }
-  /* 
-
   // Display profile in UI
   showProfile(user) {
     this.profile.innerHTML = `
@@ -33,10 +31,50 @@ class UI {
     `;
   }
 
+  // Clear profile sinon il y a un profile qui sera afficher
+  // ce qui est embetant pour chercher un nouveau profile
+  clearProfile() {
+    this.profile.innerHTML = '';
+  }
+
+  // Show alert message
+  showAlert(message, className) {
+    // effacer tout profile preexiatant
+    this.clearAlert();
+    // Create div with classname
+    const div = createOneElement('div', 'class', className);
+    // Add text
+    div.appendChild(document.createTextNode(message));
+    // Get parent
+    const container = getOneElement('.searchContainer');
+    // Get search box
+    const search = getOneElement('.search');
+    // Insert alert
+    container.insertBefore(div, search);
+
+    // Timeout after 3 sec
+    setTimeout(() => {
+      // vider la console et ses messages d'erreur
+      console.clear();
+      this.clearAlert();
+    }, 3000);
+  }
+  // Clear alert message pour eviter la multiplicite de
+  // message d'erreur
+  clearAlert() {
+    const currentAlert = getOneElement('.alert');
+
+    // s'il y a deja un message alors on supprime l'element
+    // le message d'alerte est crée par showMessage()
+    if (currentAlert) {
+      currentAlert.remove();
+    }
+  }
+
   // Show user repos
   showRepos(repos) {
     let output = '';
-
+    // il y a 5 repository
     repos.forEach(function (repo) {
       output += `
         <div class="card card-body mb-2">
@@ -45,8 +83,8 @@ class UI {
               <a href="${repo.html_url}" target="_blank">${repo.name}</a>
             </div>
             <div class="col-md-6">
-            <span class="badge badge-primary">Stars: ${repo.stargazers_count}</span>
-            <span class="badge badge-secondary">Watchers: ${repo.watchers_count}</span>
+            <span class="badge badge-primary">Sterne: ${repo.stargazers_count}</span>
+            <span class="badge badge-secondary">Besuchter: ${repo.watchers_count}</span>
             <span class="badge badge-success">Forks: ${repo.forms_count}</span>
             </div>
           </div>
@@ -55,43 +93,6 @@ class UI {
     });
 
     // Output repos
-    document.getElementById('repos').innerHTML = output;
-  }
-
-  // Show alert message
-  showAlert(message, className) {
-    // Clear any remaining alerts
-    this.clearAlert();
-    // Create div
-    const div = document.createElement('div');
-    // Add classes
-    div.className = className;
-    // Add text
-    div.appendChild(document.createTextNode(message));
-    // Get parent
-    const container = document.querySelector('.searchContainer');
-    // Get search box
-    const search = document.querySelector('.search');
-    // Insert alert
-    container.insertBefore(div, search);
-
-    // Timeout after 3 sec
-    setTimeout(() => {
-      this.clearAlert();
-    }, 3000);
-  }
-
-  // Clear alert message
-  clearAlert() {
-    const currentAlert = document.querySelector('.alert');
-
-    if (currentAlert) {
-      currentAlert.remove();
-    }
-  }
-    */
-  // Clear profile
-  clearProfile() {
-    this.profile.innerHTML = '';
+    getOneElement('#repos').innerHTML = output;
   }
 }
