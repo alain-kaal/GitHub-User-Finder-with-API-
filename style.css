@@ -2,6 +2,10 @@ body,
 footer {
   background-color: darkgoldenrod;
 }
+/* 
+.container {
+ 
+} */
 
 nav div.container {
   width: 40%;
@@ -11,6 +15,9 @@ nav div.container {
 .search {
   border: solid blue 4px;
   background-color: cadetblue !important;
+  /* border: 0; */
+  width: 50%;
+  margin: 0 auto;
 }
 #searchUser {
   background-color: darkkhaki;
@@ -25,47 +32,5 @@ p.lead {
   color: black;
   font-weight: bold;
   font-size: small;
-}
-/* p.lead {
-  color: black;
-  font-weight: bold;
-  font-size: small;
-}
-#searchUser {
-  background-color: darkkhaki;
-  color: black;
-  font-size: medium;
-  font-weight: bold;
-}
-.search {
-   border: solid blue 4px; 
-  background-color: cadetblue !important;
-}
-footer.bg-light {
-  background-color: burlywood !important;
-} */
-/* 
-button {
-  font-weight: bold;
-  font-size: x-small;
-  color: darkslategray;
-  padding-right: 4px;
-  padding-left: 0px;
-  width: 30%;
-}
-
-
-h5,
-h6 {
-  color: black;
-  border: solid blue 4px;
-  width: 70%;
-  margin: 0 auto;
-  margin-bottom: 10px;
   text-align: center;
-  font-weight: bold;
-} */
-/* .test-error {
-  width: 40%;
-  margin: 0 auto;
-} */
+}

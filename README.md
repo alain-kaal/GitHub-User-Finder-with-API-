@@ -2,9 +2,17 @@
 
 Profile and repository of github user finder
 
-## Getting Started
+## Some Explication
 
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
+Cette Application fonctionne comme une MVC.
+
+- App.js est un controleur. Il appelle UI.js pour la Vue
+  et GitHub.js la connection et le fetch des données.
+- UI.js c'est la vue. j'ai utilisé les template literals
+  de Javascript ce qui permet d'integrer facilement les
+  classes xss de bootstrap ou bootswatch.
+- GitHub n'est pas vraiment un Modele. c'est plutot un
+  second controleur qui sert a recupere les données de l'API
 
 ### Prerequisites
 
@@ -28,7 +36,7 @@ The full URL to your application homepage.
 
 ## Deployment
 
-I use Live server from VS Code
+I use Live server Extension from VS Code to simulate a server
 
 ## Authors
 
